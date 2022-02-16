@@ -1,0 +1,9 @@
+server:
+  port: 8081
+spring:
+  profiles:
+    active: development
+  application:
+    name: network-users
+  config:
+    import: optional:configserver:http://network-config:8888

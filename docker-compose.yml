@@ -1,0 +1,44 @@
+# docker-compose.yml
+version: '3'
+services:
+  database:
+    container_name: database
+    build: ./database
+    ports:
+      - "5432:5432"
+  network-config:
+    container_name: network-config
+    build: ./network-config
+    ports:
+      - "8888:8888"
+  network-discovery-server:
+    container_name: network-discovery-server
+    build: ./network-discovery-server
+    ports:
+      - "8761:8761"
+    depends_on:
+      - network-config
+  network-users:
+    container_name: network-users
+    build: ./network-users
+    ports:
+      - "8081:8081"
+    depends_on:
+      - database
+      - network-discovery-server
+  network-posts:
+    container_name: network-posts
+    build: ./network-posts
+    ports:
+      - "8082:8082"
+    depends_on:
+      - database
+      - network-discovery-server
+  network-messages:
+    container_name: network-messages
+    build: ./network-messages
+    ports:
+      - "8083:8083"
+    depends_on:
+      - database
+      - network-discovery-server

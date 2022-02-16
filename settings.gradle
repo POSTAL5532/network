@@ -1,0 +1,8 @@
+rootProject.name = 'network'
+
+include 'network-users'
+include 'network-discovery-server'
+include 'network-posts'
+include 'network-messages'
+include 'network-config'
+include 'database'

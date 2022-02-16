@@ -1,0 +1,9 @@
+server:
+  port: 8082
+spring:
+  profiles:
+    active: development
+  application:
+    name: network-posts
+  config:
+    import: optional:configserver:http://network-config:8888
