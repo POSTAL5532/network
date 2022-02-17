@@ -1,9 +1,7 @@
-server:
-  port: 8083
 spring:
   profiles:
     active: development
   application:
     name: network-messages
   config:
-    import: optional:configserver:http://network-config:8888
+    import: optional:configserver:http://network-config-server:8888
