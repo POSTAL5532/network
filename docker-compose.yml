@@ -26,8 +26,8 @@ services:
     build: ./network-posts
     ports:
       - "8082:8082"
-  network-messages:
-    container_name: network-messages
-    build: ./network-messages
+  network-notifications:
+    container_name: network-notifications
+    build: ./network-notifications
     ports:
       - "8083:8083"

@@ -2,6 +2,6 @@ spring:
   profiles:
     active: development
   application:
-    name: network-messages
+    name: network-notifications
   config:
     import: optional:configserver:http://network-config-server:8888
