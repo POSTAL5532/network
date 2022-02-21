@@ -36,5 +36,6 @@ public class User {
     @Column(name = "reg_date")
     private LocalDate regDate;
 
+    @Enumerated(EnumType.STRING)
     private UserStatus status;
 }

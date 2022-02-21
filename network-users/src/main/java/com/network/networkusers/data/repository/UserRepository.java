@@ -7,6 +7,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @author SIE
@@ -16,4 +17,7 @@ public interface UserRepository extends JpaRepository<User, String> {
 
     @Query("select u from User u where u.id in :ids")
     List<User> findAllByListOfIds(@Param("ids") List<String> ids);
+
+    // TODO: temporary solution - need oAuth
+    Optional<User> findByEmailAndPassword(String email, String password);
 }

@@ -16,4 +16,7 @@ public interface UserService {
     void addUser(User newUser);
 
     List<User> getAllByIds(List<String> ids);
+
+    // TODO: temporary solution - need oAuth
+    String authUser(String email, String password);
 }

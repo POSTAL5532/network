@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
 
 /**
  * @author SIE
@@ -18,7 +20,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUser(String id) {
-        return userRepository.getById(id);
+        return userRepository.findById(id).orElseThrow(() -> new NoSuchElementException("User not found"));
     }
 
     @Override
@@ -34,5 +36,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> getAllByIds(List<String> ids) {
         return userRepository.findAllByListOfIds(ids);
+    }
+
+    @Override
+    public String authUser(String email, String password) {
+        Optional<User> user = userRepository.findByEmailAndPassword(email, password);
+        return user.map(User::getId).orElse(null);
     }
 }
