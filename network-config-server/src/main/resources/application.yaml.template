@@ -7,4 +7,4 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/POSTAL5532/network_config
+          uri: https://github.com/<git user>/<git with properties>

@@ -1,7 +1,5 @@
 spring:
-  profiles:
-    active: development
   application:
-    name: network-users
+    name: network-posts
   config:
     import: optional:configserver:http://network-config-server:8888
