@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 /**
  * @author SIE
@@ -16,8 +17,14 @@ public class PostServiceImpl implements PostService {
 
     private final PostRepository postRepository;
 
+    private final UserService userService;
+
     @Override
     public List<Post> getUserPosts(String userId) {
+        if (!userService.userExist(userId)) {
+            throw new NoSuchElementException("User doesn't exist!");
+        }
+
         return postRepository.findByUserId(userId);
     }
 

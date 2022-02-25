@@ -23,6 +23,11 @@ public class UserController {
         return ResponseEntity.ok(userService.getUser(id));
     }
 
+    @GetMapping("/exist/{id}")
+    public ResponseEntity<Boolean> exist(@PathVariable String id) {
+        return ResponseEntity.ok(userService.exist(id));
+    }
+
     @PostMapping
     public ResponseEntity<Void> registerUser(@RequestBody User user) {
         userService.addUser(user);

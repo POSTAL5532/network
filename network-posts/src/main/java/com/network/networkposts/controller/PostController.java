@@ -2,12 +2,14 @@ package com.network.networkposts.controller;
 
 import com.network.networkposts.data.model.Post;
 import com.network.networkposts.data.service.PostService;
+import com.network.networkposts.data.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.ws.rs.HeaderParam;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 /**
  * @author SIE
